@@ -1,0 +1,480 @@
+echo "Hello World!"
+
+a=20
+b=10
+val=`expr $a / $b`
+echo $val
+
+
+let "pawan=100+200"
+echo "$pawan"
+
+
+a=2
+b=3
+val=`expr $a + $b`
+echo $val
+
+a=5
+b=6
+c=`expr $a + $b`
+d=`expr $a - $b`
+echo $c
+echo $d
+
+
+
+a=1
+b=2
+c=$a+$b
+echo $(($c))
+
+n=20
+echo $((n +=30))
+echo $((n -=30))
+echo $((n *=30))
+echo $((n /=30))
+echo $((n %=30))
+
+
+
+i=29
+echo "pre increment" $((++i+10))
+
+i=29
+echo "post increment" $((i++ +10))
+echo $(($i))
+
+
+d="english"
+e="french"
+if [[ $d = "english"  && $e = "french" ]]
+then
+    echo "i know english"
+else
+    echo "i know french"
+fi
+
+
+
+terminate=$1
+if [[ $terminate != 1 ]]
+then
+    echo "programming is fun"
+else
+    echo "else block executes"
+fi
+
+
+n=50
+if [ $n -eq 50 ]
+then
+    echo "the number is equal to 50"
+else
+    echo "the number is not equal to 50"
+fi
+
+
+#-eq operator
+h=120
+if [[ $h -eq 123 ]]
+then
+    echo "the number is equal to 123"
+else 
+    echo "the number is not equal to 123"
+fi
+
+
+
+#ne condition
+a=10
+b=10
+if [ $a -ne $b ]
+then 
+    echo "a is equal to b"
+else
+    echo "a is not equal to b"
+fi
+
+#-gt operator
+
+n=50
+if [ $n -gt 60 ]
+then
+    echo " the number is greater than 50"
+else
+    echo "the number is lesser than 60"
+fi
+
+n=110
+if [ $n -gt 100 ]
+then 
+    echo " the number is greater than 100"
+else
+    echo " the number is lesser than 100"
+fi
+
+#-ge operator
+
+n=40
+if [ $n -ge 50 ]
+then
+    echo "the number is > 50"
+else
+    echo "the number is < 50"
+fi
+
+
+
+#-lt lesser than
+#-le lesser than or equL TO
+n=30
+if [[ $n -lt 40 || $n -le 30 ]]
+then 
+    echo $n " is lesser than 40"
+else 
+    echo $n  "is equal to 30"
+fi
+
+#<=
+
+n=55
+if [ $n <= 50 ]
+then
+    echo "is lesser than 50"
+else
+    echo "else part"
+fi
+
+
+str="mango"
+if [ $str = "mango" ]
+then 
+    echo "the value is equal"
+else 
+    echo " the value is not equal"
+fi
+
+
+#== operator
+
+var=100
+if [ $var == 100 ]
+then 
+    echo "the value is equal to 100"
+else
+    echo "the value is not equal to 100"
+fi
+
+#!= operator
+
+n=100
+if [ $n != 50 ]
+then
+    echo  $n "is not equal to  50"
+else 
+    echo "is equal to"
+fi
+
+#< string operator
+
+str="mango"
+str_="orange"
+if [ $str < $str_ ]
+then
+    echo " string val is equal to eachother"
+else
+    echo "string val is not equal to eachother "
+fi 
+
+#length of string is 0 or not
+
+var="pawan"
+if [ -n $var ]
+then 
+    echo "string len is 5"
+else
+    echo "string len is zero"
+fi
+
+
+var="pawan"
+if [ -z $var ]
+then 
+    echo "string len is 5"
+else
+    echo "string len is zero"
+fi
+
+
+num=25
+num1=10
+if [ $num -gt 32 -a $num1 -lt 51 ]
+then
+    echo "logic works"
+elif [ $num -gt 30 -a $num1 -lt 8 ]
+then
+    echo "else if executes"
+else
+    echo "logic dont works"
+fi
+
+file = "C:\Users\slalam2\Desktop\linux\test.txt"
+if [ -r $file ]
+then 
+    echo "file has read access"
+else
+    echo " file has no read access"
+fi
+
+if [ -w $file ]
+then 
+    echo "file has write access"
+else
+    echo " file has no write access"
+fi
+
+if [ -x $file ]
+then 
+    echo "file has execute access"
+else
+    echo " file has no execute access"
+fi
+
+if [ -f $file ]
+then 
+    echo "this is ordinary file"
+else
+    echo " this is special file "
+fi
+
+
+if [ -d $file ]
+then 
+    echo "this id directory"
+else
+    echo " ths is not a directory"
+fi
+
+
+if [ -s $file ]
+then 
+    echo "file size is non zero"
+else
+    echo " file size is zero "
+fi
+
+if [ -e $file ]
+then 
+    echo "file exists"
+else
+    echo " file doesn't exists"
+fi
+
+a=0
+while [ $a -lt 10 ]
+do 
+    echo $a
+    a=`expr $a + 1`
+done
+
+
+
+a=0
+while [ "$a" -lt  10 ]
+do
+    b="$a"
+    while [ "$b" -ge 0 ]
+    do
+        echo -n "$b"
+    done
+    echo 
+    a=`expr $a + 1`
+done
+
+
+
+#program to check even or odd
+
+nums="1 2 3 4 5 6 7 8"
+for i in $nums
+do
+    result=`expr $i % 2`
+    if [ $result -eq 0 ]
+    then 
+        echo "even number"
+    else
+        echo "odd number"
+    fi
+done
+
+echo "input a number"
+read number < /dev/tty
+if [ $(($number % 2 )) -eq 0 ]
+then 
+    echo $number : "even"
+else
+    echo $number : "odd"
+fi
+
+#break
+#continue
+
+a=0
+while [ $a -lt 10 ]
+do
+    echo $a
+    if [ $a -eq 5 ]
+    then 
+        break
+    fi
+    a=`expr $a + 1`
+done
+
+
+for var1 in 1 2 3
+do 
+    for var2 in 0 5
+    do
+        if[ $var1 -eq 2 -a $var2 -eq 0 ]
+        then 
+        break 2
+        else 
+            echo "$var1 $var2"
+        fi
+    done
+done
+
+
+
+nums="1 2 3 4 5 6 7"
+for numbers in $nums
+do
+    q=`expr $numbers % 2`
+    if [ $q -eq 0 ]
+    then 
+        echo "is an even number"
+        continue
+    fi
+    echo "is odd number"
+done
+
+
+
+i=0
+while [[ $i -lt 5 ]]
+do
+    echo "number : $i"
+    if [[ $i -eq 2 ]]
+    then 
+        continue
+    fi
+    echo "number : $i"
+done
+echo "all done well"
+
+function hello(){
+    echo "linus scripting"
+    echo "prog is fun"
+    echo "hello developers"
+}
+hello
+
+
+
+# Hello World Program in Bash Shell
+
+echo "Hello World!"
+
+function hello(){
+    echo "linus scripting"
+    echo "prog is fun"
+    echo "hello developers"
+}
+hello
+
+celebrity(){
+    echo "my name is $1 $2"
+}
+
+celebrity Pawankumar
+
+sample(){
+    echo "this  $1 $2 $3 $4"
+}
+sample linux programming is fun
+
+race(){
+    echo "what is your name? $1"
+    echo "where r u from: $2"
+    echo "how r u : $3"
+    
+}
+
+race pawan tanuku im_fine
+
+
+play(){
+    echo "i love cricket"
+    return 10
+    
+}
+play
+
+ret=$?
+echo "the return value is":$ret
+
+
+jelly(){
+    echo "i love cricket  $1"
+    return 2
+    
+}
+jelly "because of its popularity"
+ret=$?
+echo $ret
+
+#nested function
+num_one(){
+    echo "this is first func "
+    num_two
+}
+num_two(){
+    echo "this is second func"
+    
+}
+num_one
+
+
+
+
+
+
+1.innerHTML
+    2.document.write()
+    3.windows.alert()
+    4.console.log()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
