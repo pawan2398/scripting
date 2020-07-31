@@ -446,14 +446,20 @@ num_two(){
 num_one
 
 
+#string operators
+s="cat" 
+if [ $s="cat" ] 
+then 
+	echo "true" 
+else 	
+	echo "false"
+fi 
+output: true
 
 
 
 
-1.innerHTML
-    2.document.write()
-    3.windows.alert()
-    4.console.log()
+
 
 
 
